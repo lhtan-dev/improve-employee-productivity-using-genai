@@ -233,7 +233,6 @@ Resources:
     Properties:
       CodeUri: src/templates/
       Handler: templates.handler
-      ReservedConcurrentExecutions: 100
       Environment:
         Variables:
           TEMPLATES_TABLE: !Ref TemplatesTable
@@ -390,7 +389,7 @@ Resources:
     Properties:
       CodeUri: src/history/
       Handler: history.handler
-      ReservedConcurrentExecutions: 100
+      
       Environment:
         Variables:
           DYNAMODB_TABLE: !Ref RequestsTable
@@ -477,7 +476,7 @@ Resources:
       CodeUri: src/websocket/authorizer/
       Handler: authorizer.handler
       Runtime: nodejs18.x
-      ReservedConcurrentExecutions: 100
+      
       Layers:
         - !Ref AwsJwtVerifyLayer
       Environment:
@@ -644,7 +643,7 @@ Resources:
     Properties:
       CodeUri: src/websocket/onconnect/
       Handler: app.handler
-      ReservedConcurrentExecutions: 100
+      
       MemorySize: 256
       Runtime: python3.11
       Tags:
@@ -677,7 +676,7 @@ Resources:
       Handler: app.handler
       MemorySize: 256
       Runtime: python3.11
-      ReservedConcurrentExecutions: 100
+      
       Tags:
         app: "EmployeeProductivityGenAIAssistantExample"
     Metadata:
@@ -709,7 +708,7 @@ Resources:
       Timeout: 180
       MemorySize: 256
       Runtime: python3.11
-      ReservedConcurrentExecutions: 100
+      
       Environment:
         Variables:
           DYNAMODB_TABLE: !Ref RequestsTable
@@ -894,7 +893,7 @@ Resources:
       Timeout: 180
       MemorySize: 256
       Runtime: python3.11
-      ReservedConcurrentExecutions: 100
+      
       Environment:
         Variables:
           DYNAMODB_TABLE: !Ref ChatTable
@@ -1073,7 +1072,7 @@ Resources:
     Properties:
       CodeUri: src/generate_presigned_url/
       Handler: generate_presigned_url.handler
-      ReservedConcurrentExecutions: 100
+      
       Environment:
         Variables:
           IMAGE_UPLOAD_BUCKET: !Ref ImageUploadBucket
